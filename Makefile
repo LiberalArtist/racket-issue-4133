@@ -19,5 +19,6 @@ layer-%/etc/racket/config.rktd: config-%.rktd
 	cp $< $@
 
 abslink:
+	rm $(TMP_SYMLINK)
 	ln -s $(realpath .) $(TMP_SYMLINK)
 	touch $@
