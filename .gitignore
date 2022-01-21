@@ -2,6 +2,7 @@
 /layer-a
 /layer-b
 /abslink
+/pkg-*-installed
 *~
 \#*
 .\#*
