@@ -5,14 +5,18 @@ all: pkg-b-installed
 TMP_SYMLINK ::= /tmp/racket-issue-4133
 INSTALLERS ::= https://pre-release.racket-lang.org/installers
 TARBALL_URL ::= $(INSTALLERS)/racket-minimal-8.3.900-x86_64-linux-cs.tgz
+RKT ::= ./racket/bin/racket
 
 pkg-%-installed: pkg-% layer-%/bin/racket
-	./racket/bin/racket -G layer-$*/etc/racket -l raco pkg install -i ./$<
+	cp -r $< layer-$*/lib/racket/pkgs/pkg-$*
+	$(RKT) -l- pkg/dirs-catalog --link catalog-$* layer-$*/lib/racket/pkgs
+	$(RKT) -G layer-$*/etc/racket -l raco pkg \
+		install -i --auto --catalog catalog-$* pkg-$*
 	touch $@
 
 layer-b/bin/racket: pkg-a-installed
 layer-%/bin/racket: layer-%/etc/racket/config.rktd racket/bin/racket | abslink
-	./racket/bin/racket --config $(<D) -l raco setup --no-user
+	$(RKT) --config $(<D) -l raco setup --no-user
 
 racket/bin/racket:
 	wget $(TARBALL_URL) -O - | tar -xz
