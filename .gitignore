@@ -1,0 +1,10 @@
+/racket
+/layer-a
+/layer-b
+/abslink
+*~
+\#*
+.\#*
+.DS_Store
+compiled/
+/doc/
