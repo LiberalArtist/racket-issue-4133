@@ -1,8 +1,9 @@
 /racket
-/layer-a
-/layer-b
+/layer-*
 /abslink
 /pkg-*-installed
+/catalog-*/
+/drracket-installed
 *~
 \#*
 .\#*
