@@ -9,9 +9,14 @@ RKT ::= ./racket/bin/racket
 .PRECIOUS: $(patsubst a b, %, catalog-% pkg-%-installed \
 		layer-%/etc/racket/config.rktd layer-%/bin/racket)
 
+pkg-b-installed: catalog-b-extended
 pkg-%-installed: catalog-%
 	$(RKT) -G layer-$*/etc/racket -l raco pkg \
 		install -i --auto --catalog catalog-$* pkg-$*
+	touch $@
+
+catalog-b-extended: catalog-b
+	$(RKT) -l raco pkg catalog-copy --merge $(INSTALLERS)/../catalog/ $<
 	touch $@
 
 catalog-%: pkg-% layer-%/bin/racket

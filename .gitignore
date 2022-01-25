@@ -3,6 +3,7 @@
 /abslink
 /pkg-*-installed
 /catalog-*/
+/catalog-b-extended
 /drracket-installed
 *~
 \#*
