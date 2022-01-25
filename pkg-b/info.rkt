@@ -5,8 +5,3 @@
 (define version "0.0")
 (define pkg-authors '(philip))
 (define license '(Apache-2.0 OR MIT))
-
-(define racket-launcher-names
-  '("launcher-b"))
-(define racket-launcher-libraries
-  '("launcher-b.rkt"))
