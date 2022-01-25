@@ -4,11 +4,11 @@
        "/tmp/racket-issue-4133/layer-b/share/applications")
       (bin-dir
        .
-       "/tmp/racket-issue-4133/layer-b/bin")
+       "/tmp/racket-issue-4133/layer-b/untethered-bin")
       (bin-search-dirs
        .
        (#f
-        "/tmp/racket-issue-4133/layer-a/bin"
+        "/tmp/racket-issue-4133/layer-a/untethered-bin"
         "/tmp/racket-issue-4133/racket/bin"))
       (build-stamp . "")
       (config-tethered-apps-dir

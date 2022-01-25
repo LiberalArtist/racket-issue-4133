@@ -4,21 +4,18 @@
        "/tmp/racket-issue-4133/layer-a/share/applications")
       (bin-dir
        .
-       "/tmp/racket-issue-4133/layer-a/bin")
+       "/tmp/racket-issue-4133/layer-a/untethered-bin")
       (bin-search-dirs
        .
        (#f
         "/tmp/racket-issue-4133/racket/bin"))
       (build-stamp . "")
-      #;
       (config-tethered-apps-dir
        .
        "/tmp/racket-issue-4133/layer-a/share/applications")
-      #;
       (config-tethered-console-bin-dir
        .
        "/tmp/racket-issue-4133/layer-a/bin")
-      #;
       (config-tethered-gui-bin-dir
        .
        "/tmp/racket-issue-4133/layer-a/bin")
