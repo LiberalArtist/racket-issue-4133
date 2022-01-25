@@ -8,6 +8,7 @@ TARBALL_URL ::= $(INSTALLERS)/racket-minimal-8.3.900-x86_64-linux-cs.tgz
 RKT ::= ./racket/bin/racket
 
 pkg-%-installed: pkg-% layer-%/bin/racket
+	mkdir -p layer-$*/lib/racket/pkgs
 	cp -r $< layer-$*/lib/racket/pkgs/pkg-$*
 	$(RKT) -l- pkg/dirs-catalog --link catalog-$* layer-$*/lib/racket/pkgs
 	$(RKT) -G layer-$*/etc/racket -l raco pkg \
@@ -27,6 +28,6 @@ layer-%/etc/racket/config.rktd: config-%.rktd
 	cp $< $@
 
 abslink:
-	rm $(TMP_SYMLINK)
+	-rm $(TMP_SYMLINK)
 	ln -s $(realpath .) $(TMP_SYMLINK)
 	touch $@
